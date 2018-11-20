@@ -1,0 +1,41 @@
+<h1>Hello Angular</h1>
+<!--
+<p>My current User is "{{user.name | uppercase}}"</p>
+
+<span>These are my hobbies: </span>
+<span *ngFor="let h of user?.hobbies">{{h}} </span>
+
+<p>He is god in Math => 1 + 2 = {{ 1 + 2 }}</p>
+
+<button (click)="user.showSecret = !user.showSecret">
+    {{ user.showSecret ? 'Hide' : 'Show'}} the secret message
+</button>
+<span [hidden]="!user.showSecret">My phone number is 123 456 7890</span>
+
+<br />
+
+<input #phone placeholder="phone number" />
+<button [class.app-disabled]="!user.showSecret" [disabled]="!user.showSecret" (click)="callMe(phone.value)">Call me</button>
+
+<h5>DEBUG</h5>
+<pre>user = <br/>{{ user | json }}</pre> -->
+
+<p>
+  <button (click)="changeChild()">Change Child data</button>
+  <button (click)="child.name = 'Changed BY PARENT'">Change Child via Template Var</button>
+  <button (click)="processReplyFromCode()">Change Child via ViewChild</button>
+  <button (click)="sendMessage()">Send message via service</button>
+</p>
+
+<info-box #child [message]="message" [name]="name" (replyToParent)="processReply($event)">
+  <footer>I am the footer</footer>
+  <div header>I am the header</div>
+</info-box>
+
+<pre>Message from Child = {{ reply | json }}</pre>
+
+<info-item [(message)]="name"></info-item>
+<pre>name = {{ name | json }}</pre>
+
+<button (click)="openModal()">Open modal</button>
+<button (click)="openModalGlobal()">Open modal globally</button>
